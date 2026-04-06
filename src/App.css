@@ -1,0 +1,107 @@
+/* App.css */
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  margin: 0;
+  padding: 0;
+  color: #f1f1f1;
+}
+
+.container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Card style */
+.card {
+  background: #1e2a38;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Inputs */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #3a4a5a;
+  background-color: #2a3b4c;
+  color: #ffffff;
+  outline: none;
+  transition: 0.2s;
+}
+
+input::placeholder {
+  color: #b0b0b0;
+}
+
+input:focus, select:focus {
+  border-color: #00bcd4;
+}
+
+/* Buttons */
+button {
+  padding: 10px 15px;
+  margin-top: 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+/* Add button */
+.add-btn {
+  background-color: #00bcd4;
+  color: white;
+}
+
+.add-btn:hover {
+  background-color: #0097a7;
+}
+
+/* Delete button */
+.delete-btn {
+  background-color: #e53935;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c62828;
+}
+
+/* Edit button */
+.edit-btn {
+  background-color: #ffb300;
+  color: black;
+}
+
+.edit-btn:hover {
+  background-color: #ffa000;
+}
+
+/* Expense item */
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Expense details */
+.expense-info {
+  flex: 1;
+}
