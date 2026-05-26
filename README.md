@@ -75,6 +75,9 @@ A modern, feature-rich expense tracking application built with React and Vite. T
 
 ---
 
+Live Demo
+https://mayuribodade.github.io/Expense_Tracker/
+
 ## 📋 Project Structure
 
 ```
