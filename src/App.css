@@ -1,15 +1,139 @@
-/* App.css */
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   margin: 0;
   padding: 0;
-  color: #f1f1f1;
+}
+
+:root {
+  --bg-primary: #0f2027;
+  --bg-secondary: #1e2a38;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --border-color: #3a4a5a;
+  --card-bg: #1e2a38;
+  --input-bg: #2a3b4c;
+}
+
+body.light {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --card-bg: #ffffff;
+  --input-bg: #f9f9f9;
+}
+
+/* Transition Screen */
+.transition-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 188, 212, 0.2);
+  border-top: 5px solid #00bcd4;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  transition: background 0.3s ease;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.95;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.app.light {
+  background: linear-gradient(135deg, #f5f5f5, #eeeeee, #e8e8e8);
+}
+
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.settings-icon-btn,
+.home-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.settings-icon-btn:hover:not(:disabled),
+.home-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(20deg);
+}
+
+.settings-icon-btn:disabled,
+.home-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .container {
-  max-width: 700px;
+  max-width: 1400px;
+  width: 100%;
   margin: 30px auto;
   padding: 20px;
 }
@@ -18,16 +142,21 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 /* Card style */
 .card {
-  background: #1e2a38;
+  background: var(--card-bg);
   padding: 20px;
   margin: 15px 0;
   border-radius: 15px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Inputs */
@@ -36,19 +165,20 @@ input, select {
   padding: 10px;
   margin: 8px 0;
   border-radius: 8px;
-  border: 1px solid #3a4a5a;
-  background-color: #2a3b4c;
-  color: #ffffff;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
   outline: none;
   transition: 0.2s;
 }
 
 input::placeholder {
-  color: #b0b0b0;
+  color: var(--text-secondary);
 }
 
 input:focus, select:focus {
   border-color: #00bcd4;
+  box-shadow: 0 0 5px rgba(0, 188, 212, 0.3);
 }
 
 /* Buttons */
@@ -71,6 +201,7 @@ button {
 
 .add-btn:hover {
   background-color: #0097a7;
+  transform: translateY(-2px);
 }
 
 /* Delete button */
@@ -81,6 +212,7 @@ button {
 
 .delete-btn:hover {
   background-color: #c62828;
+  transform: translateY(-2px);
 }
 
 /* Edit button */
@@ -91,17 +223,178 @@ button {
 
 .edit-btn:hover {
   background-color: #ffa000;
+  transform: translateY(-2px);
 }
 
 /* Expense item */
 .expense-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-/* Expense details */
 .expense-info {
   flex: 1;
+  min-width: 200px;
+}
+
+.expense-info h3 {
+  margin: 0 0 10px 0;
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
+.expense-info p {
+  margin: 5px 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.expense-amount {
+  font-weight: 700;
+  color: #00bcd4 !important;
+  font-size: 14px !important;
+}
+
+.expense-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 150px;
+}
+
+.expense-actions button {
+  flex: 1;
+  min-width: 70px;
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 1000px;
+    padding: 20px 15px;
+  }
+
+  .app-header h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .app-header {
+    padding: 15px;
+  }
+
+  .app-header h1 {
+    font-size: 20px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .settings-icon-btn,
+  .home-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  input, select {
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .add-btn, .delete-btn, .edit-btn {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .expense-item {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .expense-info {
+    width: 100%;
+  }
+
+  .expense-actions {
+    width: 100%;
+  }
+
+  .expense-actions button {
+    flex: 1;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+    margin: 10px auto;
+  }
+
+  .app-header {
+    padding: 12px;
+  }
+
+  .app-header h1 {
+    font-size: 18px;
+  }
+
+  .header-actions {
+    gap: 5px;
+  }
+
+  .settings-icon-btn,
+  .home-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  input, select {
+    padding: 8px;
+    font-size: 14px;
+    margin: 6px 0;
+  }
+
+  button {
+    padding: 8px 10px;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  .card {
+    padding: 15px;
+    margin: 10px 0;
+  }
+
+  .expense-item {
+    padding: 12px;
+  }
+
+  .expense-info h3 {
+    font-size: 16px;
+  }
+
+  .expense-info p {
+    font-size: 12px;
+  }
 }

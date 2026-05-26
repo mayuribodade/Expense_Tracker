@@ -1,0 +1,85 @@
+/* DataActions.css */
+
+.data-actions {
+  background: #1e2a38;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  border-left: 5px solid #43e97b;
+}
+
+.data-actions h3 {
+  margin-top: 0;
+  color: #43e97b;
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #43e97b;
+  padding-bottom: 10px;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.action-btn {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.export-btn {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: black;
+}
+
+.export-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(67, 233, 123, 0.4);
+}
+
+.import-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: black;
+}
+
+.import-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(79, 172, 254, 0.4);
+}
+
+.clear-btn {
+  background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+  color: white;
+}
+
+.clear-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(245, 87, 108, 0.4);
+}
+
+.action-help {
+  display: block;
+  color: #b0b0b0;
+  font-size: 12px;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+}

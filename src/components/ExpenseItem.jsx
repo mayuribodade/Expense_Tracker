@@ -4,18 +4,21 @@ function ExpenseItem({ expense, deleteExpense, editExpense }) {
       
       <div className="expense-info">
         <h3>{expense.title}</h3>
-        <p>₹ {expense.amount}</p>
-        <p>{expense.date}</p>
-        <p><b>Category:</b> {expense.category}</p>
+        <p className="expense-amount">💰 ${expense.amount.toFixed(2)}</p>
+        <p className="expense-date">📅 {expense.date}</p>
+        <p className="expense-category">🏷️ {expense.category}</p>
+        {expense.paymentMethod && (
+          <p className="expense-payment">💳 {expense.paymentMethod}</p>
+        )}
       </div>
 
-      <div>
+      <div className="expense-actions">
         <button className="edit-btn" onClick={() => editExpense(expense)}>
-          Edit
+          ✏️ Edit
         </button>
 
         <button className="delete-btn" onClick={() => deleteExpense(expense.id)}>
-          Delete
+          🗑️ Delete
         </button>
       </div>
 

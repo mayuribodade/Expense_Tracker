@@ -1,0 +1,177 @@
+/* Settings.css */
+
+.settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.settings-modal {
+  background: #1e2a38;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 400px;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid #3a4a5a;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.settings-header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.settings-content {
+  padding: 20px;
+}
+
+.setting-item {
+  margin-bottom: 25px;
+}
+
+.setting-item label {
+  display: block;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.setting-item small {
+  display: block;
+  color: #b0b0b0;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #2a3b4c;
+  border-radius: 8px;
+  border: 1px solid #3a4a5a;
+  overflow: hidden;
+}
+
+.currency {
+  padding: 10px 12px;
+  color: #00bcd4;
+  font-weight: bold;
+  background: #1e2a38;
+  border-right: 1px solid #3a4a5a;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  padding: 10px 12px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-group input:focus {
+  background: rgba(0, 188, 212, 0.05);
+}
+
+.theme-toggle {
+  display: flex;
+  gap: 10px;
+}
+
+.theme-btn {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #3a4a5a;
+  background: #2a3b4c;
+  color: #b0b0b0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.theme-btn.active {
+  border-color: #00bcd4;
+  background: rgba(0, 188, 212, 0.1);
+  color: #00bcd4;
+}
+
+.theme-btn:hover {
+  border-color: #00bcd4;
+}
+
+.settings-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #3a4a5a;
+  display: flex;
+  gap: 10px;
+}
+
+.save-btn {
+  flex: 1;
+  padding: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+}
